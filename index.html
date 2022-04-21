@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lightning Cards</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <div id="wrapper">
+    <div id="signOrCreate">
+        <h1 id ="titleCard">Lightning Cards!</h1>
+        <button id="signChoice">Sign In</button>
+        <button id="createChoice">Create New User</button>
+    </div>
+    <div id ="Sign">
+        <label> Email: <input type="text" id="signEmail"></label>
+        <label> Password: <input type="password" id="signPassword"></label>
+        <button id="LogIn">Log In</button>
+        <p id="invalid">User Name or Password invalid please try again.</p>
+    </div>
+    <div id="Create">
+        <label> Email: <input type="text" id="createEmail"></label>
+        <label> First Name: <input type="text" id="createFirst"></label>
+        <label> Last Name: <input type="text" id="createLast"></label>
+        <label> Password: <input type="password" id="createPassword"></label>
+        <button id="newUser">Create New User</button>
+        <div id="errorExists">
+            <p>Email already exists please Log In</p>
+        </div>
+    </div>
+    <div id="page">
+        <nav>
+            <button id="LogOut">Log Out</button>
+        </nav>
+        <body>
+            <h1>Flash Card Practice</h1>
+            <div id="practice"></div>
+            <button id="show">Let's get started</button>
+        <div id="new">
+            <h2>Add a new Flash Card!</h2>
+            <label> Question: <input type="text" id="newQuestion"></label>
+            <label> Answer: <input type="text" id="newAnswer"></label>
+            <label> Value: <input type="text" id="newValue"></label>
+            <label> Author: <input type="text" id="newAuthor"></label>
+            <label> Subject: <input type="text" id="newSubject"></label>
+            <button id="add">New Card</button>
+        </div>
+            <h2>These are the cards I already have.</h2>
+                <div id="editblock">
+                    <h2>Edit this Flash Card!</h2>
+                    <label> Question: <input type="text" id="editQuestion"></label>
+                    <label> Answer: <input type="text" id="editAnswer"></label>
+                    <label> Value: <input type="text" id="editValue"></label>
+                    <label> Author: <input type="text" id="editAuthor"></label>
+                    <label> Subject: <input type="text" id="editSubject"></label>
+                    <button id="save">Save Card</button>
+                </div>
+            <ol id="flashCards"></ol>
+            <script src="app.js"></script>
+        </div>
+        </body>
+    </div>
+</html>
