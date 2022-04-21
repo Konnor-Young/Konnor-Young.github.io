@@ -1,5 +1,7 @@
 console.log("Lightning Cards.");
 
+var BASE_URL = 'https://lightningcards.herokuapp.com/'
+
 var newCard = document.querySelector("#add");
 console.log("add button query: ", newCard);
 var nextCard = document.querySelector("#show");
@@ -98,7 +100,7 @@ logout.onclick = function() {
 }
 
 function deleteSession(){
-    fetch("http://localhost:8080/sessions/", {
+    fetch(BASE_URL + "sessions/", {
         credentials: 'include',
         method: "DELETE"
     }).then(function (response) {
@@ -118,7 +120,7 @@ function addNewFlash(cardQuestion, cardAnswer, cardValue, cardAuthor, cardSubjec
     data += "&Subject=" + encodeURIComponent(cardSubject);
     console.log("newest flash card: ", data);
 
-    fetch("http://localhost:8080/answers", {
+    fetch(BASE_URL + "answers", {
         credentials: 'include',
         method: "POST",
         body: data,
@@ -131,7 +133,7 @@ function addNewFlash(cardQuestion, cardAnswer, cardValue, cardAuthor, cardSubjec
 }
 
 function deleteCardFromServer(questionID) {
-    fetch("http://localhost:8080/answers/"+questionID, {
+    fetch(BASE_URL + "answers/"+questionID, {
         credentials: 'include',
         method: "DELETE"
     }).then(function (response) {
@@ -148,7 +150,7 @@ function updateCardFromServer(cardQuestion, cardAnswer, cardValue, cardAuthor, c
     editdata += "&Value=" + encodeURIComponent(cardValue);
     editdata += "&Author=" + encodeURIComponent(cardAuthor);
     editdata += "&Subject=" + encodeURIComponent(cardSubject);
-    fetch("http://localhost:8080/answers/"+questionID, {
+    fetch(BASE_URL + "answers/"+questionID, {
         credentials: 'include',
         method: "PUT",
         body: editdata,
@@ -164,7 +166,7 @@ function updateCardFromServer(cardQuestion, cardAnswer, cardValue, cardAuthor, c
 }
 
 function loadFlashCards(){
-    fetch("http://localhost:8080/answers", {
+    fetch(BASE_URL + "answers", {
         credentials: 'include',
     }).then(function (response) {
         if(response.status == 401){
@@ -264,7 +266,7 @@ function newLogIn(userEmail, userFirst, userLast, userPassword) {
     data += "&Score=" + encodeURIComponent(0);
     console.log("newest user: ", data);
 
-    fetch("http://localhost:8080/users", {
+    fetch(BASE_URL + "users", {
         credentials: 'include',
         method: "POST",
         body: data,
@@ -292,7 +294,7 @@ function userLogIn(userEmail, userPassword) {
     data += "&Password=" + encodeURIComponent(userPassword);
     console.log("newest log-in: ", data);
 
-    fetch("http://localhost:8080/sessions", {
+    fetch(BASE_URL + "sessions", {
         credentials: 'include',
         method: "POST",
         body: data,
